@@ -32,7 +32,17 @@ def base_to_decimal(digits, original_base):
 
 def digits_as_string(digits, base):
     """Returns the string representation of an array of digits given in base"""
-    pass
+    # 2 < base <= 16    
+    if base > 16 or base < 2:
+        raise ValueError(f'Wrong base! Input is bigger than 16. Your base: {base}')
+    for digit in digits:
+        if digit >= base:
+            raise ValueError(f'Wrong digit! Your digit should be [0, {base - 1}]. Your digit: {digit}')
+    alldigits = list('0123456789ABCDEF')
+    string = ''
+    for d in digits:
+        string += alldigits[d]
+    return string
 
 
 def convert_base(original_digits, original_base, destination_base):
