@@ -13,7 +13,13 @@ def binary_to_decimal(binary_digits):
 
 def decimal_to_base(decimal_number, destination_base):
     """Returns the digits in destination_base representation of the decimal number"""
-    pass
+    digits = []
+    while decimal_number > 0:
+        digits.insert(0, decimal_number % destination_base)
+        decimal_number = decimal_number // destination_base
+    return digits
+
+
 
 
 def base_to_decimal(digits, original_base):
