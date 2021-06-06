@@ -8,7 +8,10 @@ def decimal_to_binary(decimal_number):
 
 def binary_to_decimal(binary_digits):
     """Returns the decimal (number) representation of a binary number represented by an array of 0/1 digits"""
-    pass
+    number = 0
+    for power, digit in enumerate(reversed(binary_digits)):
+        number += digit * (2 ** power)
+    return number
 
 
 def decimal_to_base(decimal_number, destination_base):
@@ -20,11 +23,11 @@ def decimal_to_base(decimal_number, destination_base):
     return digits
 
 
-
-
 def base_to_decimal(digits, original_base):
-    """Returns the decimal (number) representation of an array of digits given in original_base"""
-    pass
+    number = 0
+    for power, digit in enumerate(reversed(digits)):
+        number += digit * (original_base ** power)
+    return number
 
 
 def digits_as_string(digits, base):
